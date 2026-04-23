@@ -6,10 +6,17 @@ import { allPosts, visitedProvinces } from "@/lib/posts";
 const Index = () => {
   const [filter, setFilter] = useState<string | null>(null);
 
-  const postCounts = useMemo(() => {
-    const m: Record<string, number> = {};
-    allPosts.forEach((p) => (m[p.province] = (m[p.province] ?? 0) + 1));
-    return m;
+  // Extract city from `location` (text before "·"), grouped by province
+  const citiesByProvince = useMemo(() => {
+    const m: Record<string, Set<string>> = {};
+    allPosts.forEach((p) => {
+      const city = (p.location?.split("·")[0] ?? p.province).trim();
+      if (!m[p.province]) m[p.province] = new Set();
+      m[p.province].add(city);
+    });
+    const out: Record<string, string[]> = {};
+    Object.entries(m).forEach(([k, v]) => (out[k] = Array.from(v)));
+    return out;
   }, []);
 
   const visiblePosts = filter ? allPosts.filter((p) => p.province === filter) : allPosts;
@@ -56,12 +63,11 @@ const Index = () => {
         </div>
         <div className="paper-card grain rounded-sm p-3 md:p-6">
           <ChinaMap
-            visited={visitedProvinces}
-            postCounts={postCounts}
+            citiesByProvince={citiesByProvince}
             onSelect={(p) => setFilter((cur) => (cur === p ? null : p))}
           />
           <p className="mt-3 text-center font-type text-xs text-ink-faded">
-            点击高亮省份可筛选下方文章 · 颜色越深，足迹越多
+            点击高亮省份可筛选下方文章 · 省份内去过的城市越多，颜色越深
           </p>
         </div>
       </section>
