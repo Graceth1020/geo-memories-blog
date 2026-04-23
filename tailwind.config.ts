@@ -19,6 +19,15 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        paper: {
+          DEFAULT: "hsl(var(--paper))",
+          dark: "hsl(var(--paper-dark))",
+        },
+        ink: {
+          DEFAULT: "hsl(var(--ink))",
+          faded: "hsl(var(--ink-faded))",
+        },
+        stamp: "hsl(var(--stamp))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

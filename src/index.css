@@ -8,35 +8,47 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* 复古胶片旅行日记 - 暖棕色调 */
+    --background: 38 35% 92%;          /* 米黄牛皮纸 */
+    --foreground: 25 35% 18%;          /* 墨棕 */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --paper: 36 40% 88%;               /* 纸张底 */
+    --paper-dark: 32 30% 80%;          /* 纸张阴影 */
+    --ink: 25 40% 15%;                 /* 钢笔墨 */
+    --ink-faded: 25 25% 35%;           /* 褪色墨 */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --card: 38 45% 95%;
+    --card-foreground: 25 35% 18%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --popover: 38 45% 95%;
+    --popover-foreground: 25 35% 18%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --primary: 12 55% 38%;             /* 胶片红棕 */
+    --primary-foreground: 38 45% 95%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --secondary: 35 25% 78%;
+    --secondary-foreground: 25 40% 18%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 35 20% 82%;
+    --muted-foreground: 25 20% 40%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --accent: 28 65% 48%;              /* 焦糖橙 */
+    --accent-foreground: 38 45% 95%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --stamp: 355 60% 42%;              /* 邮戳红 */
 
-    --radius: 0.5rem;
+    --destructive: 0 65% 45%;
+    --destructive-foreground: 38 45% 95%;
+
+    --border: 32 25% 70%;
+    --input: 32 25% 70%;
+    --ring: 12 55% 38%;
+
+    --radius: 0.25rem;
+
+    --shadow-paper: 0 1px 2px hsl(25 30% 20% / 0.08), 0 8px 24px hsl(25 30% 20% / 0.12);
+    --shadow-stamp: 0 2px 0 hsl(25 30% 20% / 0.15);
+    --gradient-vignette: radial-gradient(ellipse at center, transparent 40%, hsl(25 40% 15% / 0.25) 100%);
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +113,96 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Noto Serif SC', Georgia, serif;
+    background-image:
+      radial-gradient(hsl(25 40% 15% / 0.04) 1px, transparent 1px),
+      radial-gradient(hsl(25 40% 15% / 0.03) 1px, transparent 1px);
+    background-size: 24px 24px, 12px 12px;
+    background-position: 0 0, 12px 12px;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Noto Serif SC', Georgia, serif;
+    letter-spacing: 0.02em;
+  }
+}
+
+@layer components {
+  .font-hand { font-family: 'Caveat', cursive; }
+  .font-type { font-family: 'Special Elite', 'Courier New', monospace; }
+
+  .paper-card {
+    background: hsl(var(--card));
+    box-shadow: var(--shadow-paper);
+    position: relative;
+  }
+  .paper-card::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(transparent 0 31px, hsl(var(--ink) / 0.06) 31px 32px);
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
+
+  .grain::after {
+    content: '';
+    position: absolute; inset: 0;
+    pointer-events: none;
+    opacity: 0.35;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.2 0 0 0 0 0.15 0 0 0 0 0.1 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  }
+
+  .stamp {
+    border: 2px solid hsl(var(--stamp));
+    color: hsl(var(--stamp));
+    font-family: 'Special Elite', monospace;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    transform: rotate(-6deg);
+    border-radius: 4px;
+    letter-spacing: 0.15em;
+    font-size: 0.7rem;
+    background: hsl(var(--stamp) / 0.05);
+  }
+
+  .prose-journal {
+    color: hsl(var(--ink));
+    font-size: 1.05rem;
+    line-height: 1.85;
+  }
+  .prose-journal h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 2rem 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px dashed hsl(var(--ink) / 0.3);
+  }
+  .prose-journal h3 { font-size: 1.2rem; font-weight: 600; margin: 1.5rem 0 0.75rem; }
+  .prose-journal p { margin: 0 0 1rem; }
+  .prose-journal strong { color: hsl(var(--primary)); }
+  .prose-journal a { color: hsl(var(--primary)); text-decoration: underline; text-decoration-style: wavy; }
+  .prose-journal blockquote {
+    border-left: 3px solid hsl(var(--primary));
+    padding: 0.5rem 1rem;
+    margin: 1.25rem 0;
+    background: hsl(var(--primary) / 0.06);
+    font-family: 'Caveat', cursive;
+    font-size: 1.4rem;
+    color: hsl(var(--ink-faded));
+  }
+  .prose-journal ul, .prose-journal ol { margin: 0 0 1rem 1.5rem; }
+  .prose-journal ul { list-style: '✦  '; }
+  .prose-journal ol { list-style: decimal; }
+  .prose-journal li { margin: 0.3rem 0; }
+  .prose-journal img { border-radius: 2px; box-shadow: var(--shadow-paper); margin: 1.5rem 0; }
+  .prose-journal hr { border: 0; border-top: 1px dashed hsl(var(--ink) / 0.3); margin: 2rem 0; }
+  .prose-journal code {
+    background: hsl(var(--muted));
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-family: 'Special Elite', monospace;
+    font-size: 0.9em;
   }
 }
