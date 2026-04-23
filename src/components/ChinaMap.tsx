@@ -112,10 +112,7 @@ const ChinaMap = ({ citiesByProvince, onSelect }: Props) => {
         {
           name: "足迹",
           type: "map",
-          map: "china",
-          roam: true,
-          zoom: 1.2,
-          scaleLimit: { min: 0.8, max: 8 },
+          geoIndex: 0,
           label: { show: false },
           emphasis: {
             label: { show: false },
