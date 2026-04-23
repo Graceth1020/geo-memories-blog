@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>足迹日志</title>
+    <script>
+      // SPA fallback for GitHub Pages: redirect to index.html with original path
+      // preserved in the query string so React Router can pick it up.
+      (function () {
+        var l = window.location;
+        var segmentCount = 1; // change to 0 for user/org site, 1 for project site
+        var pathSegments = l.pathname.split('/').slice(1);
+        var base = '/' + pathSegments.slice(0, segmentCount).join('/');
+        var rest = pathSegments.slice(segmentCount).join('/');
+        var newUrl =
+          l.protocol + '//' + l.hostname +
+          (l.port ? ':' + l.port : '') +
+          base + (base.endsWith('/') ? '' : '/') +
+          '?p=/' + rest +
+          (l.search ? '&q=' + l.search.slice(1) : '') +
+          l.hash;
+        l.replace(newUrl);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
