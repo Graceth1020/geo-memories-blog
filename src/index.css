@@ -166,4 +166,43 @@ All colors MUST be HSL.
     font-size: 0.7rem;
     background: hsl(var(--stamp) / 0.05);
   }
+
+  .prose-journal {
+    color: hsl(var(--ink));
+    font-size: 1.05rem;
+    line-height: 1.85;
+  }
+  .prose-journal h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 2rem 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px dashed hsl(var(--ink) / 0.3);
+  }
+  .prose-journal h3 { font-size: 1.2rem; font-weight: 600; margin: 1.5rem 0 0.75rem; }
+  .prose-journal p { margin: 0 0 1rem; }
+  .prose-journal strong { color: hsl(var(--primary)); }
+  .prose-journal a { color: hsl(var(--primary)); text-decoration: underline; text-decoration-style: wavy; }
+  .prose-journal blockquote {
+    border-left: 3px solid hsl(var(--primary));
+    padding: 0.5rem 1rem;
+    margin: 1.25rem 0;
+    background: hsl(var(--primary) / 0.06);
+    font-family: 'Caveat', cursive;
+    font-size: 1.4rem;
+    color: hsl(var(--ink-faded));
+  }
+  .prose-journal ul, .prose-journal ol { margin: 0 0 1rem 1.5rem; }
+  .prose-journal ul { list-style: '✦  '; }
+  .prose-journal ol { list-style: decimal; }
+  .prose-journal li { margin: 0.3rem 0; }
+  .prose-journal img { border-radius: 2px; box-shadow: var(--shadow-paper); margin: 1.5rem 0; }
+  .prose-journal hr { border: 0; border-top: 1px dashed hsl(var(--ink) / 0.3); margin: 2rem 0; }
+  .prose-journal code {
+    background: hsl(var(--muted));
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-family: 'Special Elite', monospace;
+    font-size: 0.9em;
+  }
 }
