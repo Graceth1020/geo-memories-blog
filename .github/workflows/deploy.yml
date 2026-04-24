@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: 20
           cache: npm
-      - run: npm ci
+      - run: npm install --no-audit --no-fund
       - name: Build
         env:
           # If your repo is https://github.com/USER/REPO, set base to "/REPO/".
