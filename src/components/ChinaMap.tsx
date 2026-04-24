@@ -103,10 +103,10 @@ const ChinaMap = ({ citiesByProvince, onSelect }: Props) => {
       geo: {
         map: "china",
         zoom: 1.2,
-        silent: true,
         roam: true,
         scaleLimit: { min: 0.8, max: 8 },
         itemStyle: { areaColor: "transparent", borderColor: "transparent" },
+        emphasis: { itemStyle: { areaColor: "transparent" }, label: { show: false } },
       },
       series: [
         {
