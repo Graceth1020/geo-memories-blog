@@ -10,7 +10,7 @@ const PostCard = ({ post, index }: { post: Post; index: number }) => {
       to={`/posts/${post.slug}`}
       className={`group block paper-card grain rounded-sm transition-transform duration-300 hover:rotate-0 hover:-translate-y-1 ${tilt}`}
     >
-      {post.cover && (
+      {post.cover ? (
         <div className="relative overflow-hidden border-b border-ink/20">
           <img
             src={post.cover}
@@ -20,8 +20,11 @@ const PostCard = ({ post, index }: { post: Post; index: number }) => {
           />
           <span className="absolute top-3 right-3 stamp">{post.province}</span>
         </div>
-      )}
+      ) : null}
       <div className="relative p-5 md:p-6">
+        {!post.cover && (
+          <span className="stamp inline-block mb-3">{post.province}</span>
+        )}
         <div className="flex items-center gap-3 text-xs font-type text-ink-faded mb-2">
           <span>{post.date}</span>
           {post.location && <span>· {post.location}</span>}

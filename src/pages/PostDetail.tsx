@@ -18,7 +18,7 @@ const PostDetail = () => {
 
   return (
     <article className="min-h-screen">
-      {post.cover && (
+      {post.cover ? (
         <div className="relative h-[40vh] md:h-[55vh] overflow-hidden border-b border-ink/20">
           <img src={post.cover} alt={post.title} className="w-full h-full object-cover sepia-[.3] contrast-105" />
           <div className="absolute inset-0" style={{ background: "var(--gradient-vignette)" }} />
@@ -30,6 +30,16 @@ const PostDetail = () => {
                 {post.date} · {post.location}
               </p>
             </div>
+          </div>
+        </div>
+      ) : (
+        <div className="border-b border-ink/20">
+          <div className="container max-w-3xl py-12">
+            <span className="stamp">{post.province}</span>
+            <h1 className="mt-3 text-3xl md:text-5xl font-bold text-ink">{post.title}</h1>
+            <p className="mt-2 font-type text-sm text-ink-faded">
+              {post.date}{post.location ? ` · ${post.location}` : ""}
+            </p>
           </div>
         </div>
       )}
