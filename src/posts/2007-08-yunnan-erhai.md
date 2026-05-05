@@ -3,7 +3,6 @@ title: 骑行洱海边的风
 date: 2007-08-15
 province: 云南
 location: 大理 · 洱海
-cover: https://images.unsplash.com/photo-1557650454-f85e4a0f2f3f?w=1200&q=80
 excerpt: 天蓝得像洗过，风把人吹得懒洋洋。洱海不是海，却比海更安静。
 ---
 

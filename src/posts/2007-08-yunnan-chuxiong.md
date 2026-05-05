@@ -3,7 +3,6 @@ title: 围着火堆转圈
 date: 2007-08-14
 province: 云南
 location: 楚雄 · 彝人古镇
-cover: https://images.unsplash.com/photo-1557650454-f85e4a0f2f3f?w=1200&q=80
 excerpt: 火把节的尾巴，被当地人拉进圈里跳舞。野生菌火锅，鲜得舌头打结。
 ---
 

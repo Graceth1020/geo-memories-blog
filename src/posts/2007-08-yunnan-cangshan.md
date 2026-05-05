@@ -3,7 +3,6 @@ title: 苍山迷雾，洗马潭的冷
 date: 2007-08-16
 province: 云南
 location: 大理 · 苍山
-cover: https://images.unsplash.com/photo-1582308842998-4b1c7f6a7b0a?w=1200&q=80
 excerpt: 缆车钻进云雾，出来时已在四千米。洗马潭的水，冰凉见骨。
 ---
 

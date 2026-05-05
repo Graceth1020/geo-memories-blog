@@ -3,7 +3,6 @@ title: 石头长成了森林
 date: 2007-08-19
 province: 云南
 location: 昆明 · 石林
-cover: https://images.unsplash.com/photo-1557650454-f85e4a0f2f3f?w=1200&q=80
 excerpt: 石头像从地里长出的剑，密密麻麻。太阳很晒，但风是凉的。
 ---
 

@@ -3,7 +3,6 @@ title: 玉龙雪山的冰川
 date: 2007-08-18
 province: 云南
 location: 丽江 · 玉龙雪山
-cover: https://images.unsplash.com/photo-1582308842998-4b1c7f6a7b0a?w=1200&q=80
 excerpt: 大索道一路向上，4680米。冰川在太阳下泛着淡蓝色。
 ---
 
