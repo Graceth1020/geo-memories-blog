@@ -3,8 +3,8 @@ title: 丽江的夜，水车不停
 date: 2007-08-17
 province: 云南
 location: 丽江 · 古城
-cover: https://images.unsplash.com/photo-1581417475963-3c3e5ff7f6b2?w=1200&q=80
 excerpt: 四方街的水车还在转，酒吧的灯映在溪水里，红红绿绿。
+
 ---
 
 ## 纳西小院的夜
